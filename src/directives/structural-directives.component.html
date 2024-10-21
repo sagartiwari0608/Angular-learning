@@ -1,0 +1,27 @@
+<!-- ngIF  -->
+<h2 *ngIf="salary>100; else nameOfElseBlock"> salary is good enough</h2>
+<!-- for else we will have to create an else block -->
+<ng-template  #nameOfElseBlock>
+  <h1>you need to work harder your salary is low</h1>
+</ng-template>
+
+<!-- ngFor  -->
+<ul>
+  <li *ngFor="let fruit of fruits; index as i;even as e" [class]="e? 'red':'blue'"> <h2>{{i}} {{fruit}} </h2> </li>
+  <!-- only for of loop is supported in ngfor -->
+  <!-- Attribute directives -->
+  <!-- <li *ngFor="let fruit of fruits; index as i;even as e" [ngClass]="['red','green','yellow']" > <h2>{{i}} {{fruit}} </h2> </li>  this method just adds all the classes from left to right-->
+  <li *ngFor="let fruit of fruits; index as i;even as e" [ngClass]="{'yellow':e,'green':!e}" > <h2>{{i}} {{fruit}} </h2> </li>
+  <!-- this abpve ngclass type works in order of conditions here the values arfter : are conditions so if e is true means its even then it the class will be added and if more than one conditions are true then classes get over written and merged. -->
+</ul>
+
+<ul>
+  <li *ngFor="let fruit of fruits;even as e;index as i" >
+    <h2 *ngIf="e" >
+      {{i}} - {{fruit}}
+    </h2>
+  </li>
+</ul>
+
+
+

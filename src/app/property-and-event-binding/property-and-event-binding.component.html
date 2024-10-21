@@ -1,0 +1,20 @@
+
+
+<!-- Following is example of property binding -->
+<button [class]="btnClasses" [disabled]="isDisabled"> click</button><!-- here we will not be able to add anything other than the variable property so we have to take care of that in typescript only.-->
+
+<br>
+<br>
+<!-- Following is example of Event binding -->
+<button (click)="clickedEvent()" [class]='btnClasses'>click to alert</button>
+
+<!-- we can also have the data being updated in real time as we update one thing. -->
+<!-- <input type="text" [value]="inputValue" (input)="changeOtherInputs($event)"/> -->
+
+
+<!-- since changeOtherInputs() is a single line event function so it can be written here only as well. -->
+<!-- <input type="text" [value]="inputValue" (input)="this.inputValue = $event.target.value " /> -->
+<!-- so here the error in above line that we are getting is that typescript thinks that event.target can be null its just warning us that what if it was null so we have to tell typescript we dont have to worry anout it. & mention the data type as any -->
+<input title="anyname" type="text" [value]="inputValue" (input)="this.inputValue = $any($event.target).value " />
+
+<h1>{{inputValue}}</h1>
